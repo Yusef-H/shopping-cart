@@ -4,7 +4,7 @@ import Home from "./Home";
 import Store from "./Store";
 import About from "./About";
 import Navbar from "./Navbar";
-import { Outlet} from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import App from "../App";
 
 
