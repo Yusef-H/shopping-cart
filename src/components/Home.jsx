@@ -2,7 +2,7 @@ import React from 'react'
 
 function Home() {
   return (
-    <div>Home</div>
+    <div data-testid="home-component">Home Page</div>
   )
 }
 

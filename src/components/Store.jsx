@@ -2,7 +2,7 @@ import React from 'react'
 
 function Store() {
   return (
-    <div>Store</div>
+    <div data-testid="store">Store</div>
   )
 }
 

@@ -2,12 +2,29 @@
     display: flex;
     justify-content: space-between;
     background-color: white;
+    padding: 20px;
+    
 
 }
 
 .nav-list{
-    list-style: none;
     display: flex;
     justify-content: flex-start;
     gap: 30px;
+}
+
+
+.nav-list button{
+    background: none;
+    border: none;
+
+}
+
+
+.cart-btn{
+    border-radius: 50%;
+    background-color:antiquewhite;
+}
+.cart-icon{
+    width: 30px;
 }
