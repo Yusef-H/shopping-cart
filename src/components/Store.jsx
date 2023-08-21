@@ -23,7 +23,7 @@ function Store() {
   if (loading) return <div>loading</div>
   if (error) return <Error />
   return (
-    <>
+    <div className='store'>
 
       <ul className='store-items'>
         {[...storeItems].map((item) => {
@@ -33,7 +33,7 @@ function Store() {
             image={item.image} />
         })}
       </ul>
-    </>
+    </div>
   )
 }
 

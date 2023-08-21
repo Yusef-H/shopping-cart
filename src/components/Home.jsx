@@ -1,9 +1,9 @@
-import React from 'react'
-
+import React from 'react';
+import '../styles/home.css';
 function Home() {
-  return (
-    <div data-testid="home-component">Home Page</div>
-  )
+  return <div className='home'>
+    Home
+  </div>
 }
 
 export default Home
