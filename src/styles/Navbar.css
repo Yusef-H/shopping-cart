@@ -116,6 +116,8 @@ ul {
 
     .nav-list>* {
         width: 60%;
+        animation: 1.5s drop-menu;
+        background-color: white;
     }
 
     .nav-list>*:hover {
@@ -124,6 +126,18 @@ ul {
 
     .nav-list>*:focus {
         background-color: skyblue;
+    }
+
+    @keyframes drop-menu {
+        from {
+            background-color: skyblue;
+            transform: translate(0, -75px);
+        }
+
+        to {
+            background-color: white;
+            transform: translate(0, 0);
+        }
     }
 
 }
