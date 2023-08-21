@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import StoreItem from './StoreItem';
+import '../styles/Store.css'
 
 function Store() {
   const [storeItems, setStoreItems] = useState(null);
@@ -21,13 +22,14 @@ function Store() {
   if (loading) return <div>loading</div>
   return (
     <>
-      <div className='container'>store </div>
-      <ul>{[...storeItems].map((item) => {
-        return <StoreItem key={item.id}
-          title={item.title}
-          price={item.price}
-          image={item.image} />
-      })}
+
+      <ul className='store-items'>
+        {[...storeItems].map((item) => {
+          return <StoreItem key={item.id}
+            title={item.title}
+            price={item.price}
+            image={item.image} />
+        })}
       </ul>
     </>
   )
