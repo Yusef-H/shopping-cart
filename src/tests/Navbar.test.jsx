@@ -1,12 +1,12 @@
 import { describe, it, expect } from 'vitest';
 import { render, screen, waitFor } from '@testing-library/react';
-import userEvent from "@testing-library/user-event";
 import { BrowserRouter, MemoryRouter, Router } from 'react-router-dom';
 import { createMemoryHistory } from 'history';
 import Navbar from '../components/Navbar';
-import App from '../App'; 
+import App from '../App';
 import Home from '../components/Home'
 import Store from '../components/Store'
+import { userEvent } from '@testing-library/user-event';
 
 vi.mock('../components/Home', () => ({
   default: () => (
@@ -32,9 +32,9 @@ describe('Navbar', () => {
       </MemoryRouter>
     );
 
-    const homeLink = screen.getByRole("link", {name: /home/i});
-    const storeLink = screen.getByRole("link", {name: /store/i});
-    const aboutLink = screen.getByRole("link", {name: /about/i});
+    const homeLink = screen.getByRole("link", { name: /home/i });
+    const storeLink = screen.getByRole("link", { name: /store/i });
+    const aboutLink = screen.getByRole("link", { name: /about/i });
 
     expect(homeLink).toBeInTheDocument();
     expect(storeLink).toBeInTheDocument();
@@ -42,7 +42,7 @@ describe('Navbar', () => {
   });
 
   it('shows store when clicking on store link', async () => {
-    userEvent.setup();
+    const user = userEvent.setup();
     const history = createMemoryHistory();
     render(
       <BrowserRouter history={history}>
@@ -50,9 +50,9 @@ describe('Navbar', () => {
       </BrowserRouter>
     );
 
-    const storeLink = screen.getByRole("link", {name: /store/i});
+    const storeLink = screen.getByRole("link", { name: /store/i });
     console.log(history.location);
-    userEvent.click(storeLink);
+    user.click(storeLink);
     console.log(history.location);
 
 
@@ -63,5 +63,5 @@ describe('Navbar', () => {
 
 
 });
-  
+
 
