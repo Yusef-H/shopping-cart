@@ -10,6 +10,7 @@ const mockData = [
 ];
 
 describe('Store component', () => {
+
     beforeAll(() => {
         // Mock the fetch function to resolve with mockData
         window.fetch = vi.fn(() =>
@@ -25,7 +26,6 @@ describe('Store component', () => {
     });
 
 
-
     it('renders loading state', () => {
         render(<Store />);
         expect(screen.getByText('loading')).toBeInTheDocument();
@@ -33,7 +33,6 @@ describe('Store component', () => {
 
     it('renders store items after data fetching', async () => {
         render(<Store />);
-
         // Wait for items to be rendered
         await waitFor(() => {
             expect(screen.getByText('Item 1')).toBeInTheDocument();
@@ -48,6 +47,18 @@ describe('Store component', () => {
             // Assert that store items are rendered with correct details
             expect(screen.getByText('Item 1')).toBeInTheDocument();
             expect(screen.getByText('10 $')).toBeInTheDocument();
+        });
+    });
+
+    it('handles fetch error', async () => {
+        // Mock the fetch function to reject with an error
+        window.fetch = vi.fn(() => Promise.reject({ json: () => new Error('Fetch error') }));
+
+        render(<Store />);
+
+        // Wait for error message to be rendered
+        await waitFor(() => {
+            expect(screen.getByText('Error')).toBeInTheDocument();
         });
     });
 });

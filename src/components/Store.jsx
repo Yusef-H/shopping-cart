@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import StoreItem from './StoreItem';
 import '../styles/Store.css'
+import Error from './Error';
 
 function Store() {
   const [storeItems, setStoreItems] = useState(null);
@@ -20,6 +21,7 @@ function Store() {
       .finally(() => setLoading(false));
   }, []);
   if (loading) return <div>loading</div>
+  if (error) return <Error />
   return (
     <>
 
