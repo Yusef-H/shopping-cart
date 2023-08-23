@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import StoreItem from './StoreItem';
 import '../styles/Store.css'
 import Error from './Error';
+import { MoonLoader } from 'react-spinners';
 
 function Store() {
   const [storeItems, setStoreItems] = useState(null);
@@ -20,7 +21,13 @@ function Store() {
       .catch((error) => setError(error))
       .finally(() => setLoading(false));
   }, []);
-  if (loading) return <div>loading</div>
+  if (loading) return (
+    <div className='loader'>
+      <MoonLoader
+        color="black"
+        aria-label='Loading Spinner' />
+    </div>
+  );
   if (error) return <Error />
   return (
     <div className='store'>

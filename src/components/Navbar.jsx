@@ -17,6 +17,7 @@ function Navbar() {
         <img src={menuSvg} alt="menu" />
       </button>
       <ul className={isNavExpanded ? 'nav-list expanded' : 'nav-list'}>
+
         <Link to="/">Home</Link>
         <Link to="/Store">Store</Link>
         <Link to="/About">About</Link>
