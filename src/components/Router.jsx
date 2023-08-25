@@ -18,7 +18,8 @@ const Router = () => {
     },
     {
       path: "/:name",
-      element: <App />
+      element: <App />,
+      errorElement: <Error />
     }
   ]);
 

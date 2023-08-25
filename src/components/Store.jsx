@@ -4,8 +4,7 @@ import '../styles/Store.css'
 import Error from './Error';
 import { MoonLoader } from 'react-spinners';
 
-function Store() {
-  const [storeItems, setStoreItems] = useState(null);
+function Store({ storeItems, setStoreItems }) {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -35,6 +34,7 @@ function Store() {
       <ul className='store-items'>
         {[...storeItems].map((item) => {
           return <StoreItem key={item.id}
+            id={item.id}
             title={item.title}
             price={item.price}
             image={item.image} />
