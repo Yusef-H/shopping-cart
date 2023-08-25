@@ -10,7 +10,7 @@ function Store() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("https://fakestoreapi.com/products?limit=20")
+    fetch("https://fakestoreapi.com/products?limit=100")
       .then((response) => {
         if (response.status >= 400) {
           // throw new Error("server error");

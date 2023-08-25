@@ -13,24 +13,13 @@ const Router = () => {
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <App />,
-      errorElement: <Error />,
-      children: [
-        {
-          index: true,
-          element: <Home />
-        },
-        {
-          path: "Store",
-          element: <Store />
-        },
-        {
-          path: "About",
-          element: <About />
-        }
-      ]
+      element: <><App /></>,
+      errorElement: <Error />
     },
-
+    {
+      path: "/:name",
+      element: <App />
+    }
   ]);
 
   return <RouterProvider router={router} />;

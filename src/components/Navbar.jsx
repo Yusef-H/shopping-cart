@@ -19,8 +19,8 @@ function Navbar() {
       <ul className={isNavExpanded ? 'nav-list expanded' : 'nav-list'}>
 
         <Link to="/">Home</Link>
-        <Link to="/Store">Store</Link>
-        <Link to="/About">About</Link>
+        <Link to="/store">Store</Link>
+        <Link to="/about">About</Link>
       </ul>
 
 

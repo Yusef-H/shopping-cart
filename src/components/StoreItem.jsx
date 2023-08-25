@@ -2,7 +2,7 @@ import React from 'react'
 import '../styles/Store.css'
 
 function StoreItem({ title, price, image }) {
-    const quantity = 0;
+    const quantity = 1;
     return (
         <div className='item-card'>
             <h1>{title}</h1>
@@ -17,6 +17,7 @@ function StoreItem({ title, price, image }) {
                         <button className='plus-btn'>+</button>
                     </div>
                 }
+                <button className='remove-btn'>remove</button>
             </div>
         </div>
     )
