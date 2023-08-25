@@ -18,13 +18,16 @@ function StoreItem({ id, title, price, image }) {
             <div className="btn-container">
                 {quantity == 0 ?
                     <button className='add-cart-btn' onClick={() => incrementQuantity(id)}>Add To Cart</button> :
-                    <div className='min-plus-container'>
-                        <button className='minus-btn' onClick={() => decrementQuantity(id)}>-</button>
-                        {quantity}
-                        <button className='plus-btn' onClick={() => incrementQuantity(id)}>+</button>
-                    </div>
+                    <>
+                        <div className='min-plus-container'>
+                            <button className='minus-btn' onClick={() => decrementQuantity(id)}>-</button>
+                            {quantity}
+                            <button className='plus-btn' onClick={() => incrementQuantity(id)}>+</button>
+                        </div>
+                        <button className='remove-btn' onClick={() => removeFromCart(id)}>remove</button>
+                    </>
                 }
-                <button className='remove-btn'>remove</button>
+
             </div>
         </div>
     )
