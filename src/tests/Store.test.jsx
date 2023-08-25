@@ -2,6 +2,7 @@ import React from 'react';
 import { render, screen, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import Store from '../components/Store';
+import { CartProvider } from '../context/CartContext';
 
 global.fetch = vi.fn();
 const mockData = [
@@ -28,11 +29,11 @@ describe('Store component', () => {
 
     it('renders loading state', () => {
         render(<Store />);
-        expect(screen.getByText('loading')).toBeInTheDocument();
+        expect(screen.getByTestId('loader')).toBeInTheDocument();
     });
 
     it('renders store items after data fetching', async () => {
-        render(<Store />);
+        render(<CartProvider><Store storeItems={mockData} setStoreItems={(mockData) => mockData} /></CartProvider>);
         // Wait for items to be rendered
         await waitFor(() => {
             expect(screen.getByText('Item 1')).toBeInTheDocument();
@@ -42,7 +43,7 @@ describe('Store component', () => {
 
 
     it('renders correct store item details', async () => {
-        render(<Store />);
+        render(<CartProvider><Store storeItems={mockData} setStoreItems={(mockData) => mockData} /></CartProvider>);
         await waitFor(() => {
             // Assert that store items are rendered with correct details
             expect(screen.getByText('Item 1')).toBeInTheDocument();

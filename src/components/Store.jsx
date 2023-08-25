@@ -24,7 +24,9 @@ function Store({ storeItems, setStoreItems }) {
     <div className='loader'>
       <MoonLoader
         color="black"
-        aria-label='Loading Spinner' />
+        aria-label='Loading Spinner'
+        data-testid="loader" />
+
     </div>
   );
   if (error) return <Error />
