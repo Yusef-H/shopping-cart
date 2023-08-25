@@ -62,11 +62,18 @@ export function CartProvider({ children }) {
         })
     }
 
+    function globalCartQuantity() {
+        return cartItems.reduce((quantity, item) => {
+            return item.quantity + quantity
+        }, 0);
+    }
+
     return <CartContext.Provider value={{
         getItemQuantity,
         incrementQuantity,
         decrementQuantity,
-        removeFromCart
+        removeFromCart,
+        globalCartQuantity
     }}>
         {children}
     </CartContext.Provider>
