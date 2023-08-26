@@ -6,6 +6,7 @@ function Cart({ storeItems }) {
     const { hidden, cartItems } = useCart()
     return (
         <div className={hidden ? "cart hide" : "cart show"}>
+            <h1>Cart</h1>
             {cartItems.map(item => {
                 return <CartItem key={item.id} id={item.id} quantity={item.quantity} storeItems={storeItems} />
             })}

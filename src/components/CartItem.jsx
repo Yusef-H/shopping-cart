@@ -8,7 +8,7 @@ function CartItem({ id, quantity, storeItems }) {
     return (
         <div className='cart-item-cont'>
             {console.log(item)}
-            <img className='item-img' src={item.image} alt="image" />
+            <img className='item-img-cart' src={item.image} alt="image" />
             <div className='title-price-cont'>
                 <h2 className='title'>{item.title} </h2>
                 <h3 className='quantity'>x{quantity}</h3>

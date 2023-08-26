@@ -1,5 +1,6 @@
 .store {
     margin-top: 75px;
+    padding: 25px;
 }
 
 .loader {
@@ -13,21 +14,30 @@
 
 .store-items {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
 }
 
 .item-card {
     display: flex;
     flex-direction: column;
     align-items: center;
-    align-content: center;
-    text-align: center;
-    font-size: 0.75rem;
-
+    padding: 15px;
+    background-color: white;
+    border-radius: 8px;
 }
 
-img {
+.item-title {
+    flex: 1;
+    font-size: 1rem;
+}
+
+.item-img {
     width: 200px;
-    height: auto;
-    object-fit: cover;
+    height: 200px;
+    object-fit: contain;
+}
+
+.item-price {
+    font-size: 0.75rem;
 }

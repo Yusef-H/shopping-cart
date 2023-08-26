@@ -12,9 +12,9 @@ function StoreItem({ id, title, price, image }) {
     const quantity = getItemQuantity(id);
     return (
         <div className='item-card'>
-            <h1>{title}</h1>
-            <img src={image} alt="" />
-            <h1>{price} $</h1>
+            <h1 className='item-title'>{title}</h1>
+            <img className='item-img' src={image} alt="" />
+            <h2 className='item-price'>{price} $</h2>
             <div className="btn-container">
                 {quantity == 0 ?
                     <button className='add-cart-btn' onClick={() => incrementQuantity(id)}>Add To Cart</button> :
