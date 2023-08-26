@@ -7,7 +7,7 @@ import { useCart } from '../context/CartContext';
 
 function Navbar() {
   const [isNavExpanded, setIsNavExpanded] = useState(false);
-  const { globalCartQuantity } = useCart();
+  const { globalCartQuantity, toggleCart } = useCart();
   const quantity = globalCartQuantity();
 
   return (
@@ -26,7 +26,7 @@ function Navbar() {
       </ul>
 
 
-      <button className='cart-btn'>
+      <button className='cart-btn' onClick={toggleCart}>
         <img src={cartSvg} alt="Cart" className='cart-icon' />
         <div className="counter">{quantity}</div>
       </button>

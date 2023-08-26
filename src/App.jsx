@@ -6,6 +6,7 @@ import Home from './components/Home';
 import About from './components/About';
 import Store from './components/Store';
 import { CartProvider } from './context/CartContext';
+import Cart from './components/Cart';
 
 function App() {
   const { name } = useParams();
@@ -21,6 +22,7 @@ function App() {
         <About />
       ) :
         <Home />}
+      <Cart storeItems={storeItems} />
     </CartProvider>
   )
 }

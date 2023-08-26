@@ -1,4 +1,5 @@
 import { createContext, useContext, useState } from "react";
+import Cart from "../components/Cart";
 
 
 const CartContext = createContext({});
@@ -9,6 +10,7 @@ export function useCart() {
 
 export function CartProvider({ children }) {
     const [cartItems, setCartItems] = useState([]);
+    const [hidden, setHidden] = useState(true);
 
     function getItemQuantity(id) {
         const item = cartItems.find(item => item.id === id);
@@ -23,6 +25,7 @@ export function CartProvider({ children }) {
     function incrementQuantity(id) {
         setCartItems(currItems => {
             // item doesnt exist
+            console.log(currItems);
             if (currItems.find(item => item.id === id) == null) {
                 return [...currItems, { id, quantity: 1 }];
             } else { //item exists
@@ -68,12 +71,21 @@ export function CartProvider({ children }) {
         }, 0);
     }
 
+    function toggleCart() {
+        setHidden(!hidden);
+    }
+
+
+
     return <CartContext.Provider value={{
         getItemQuantity,
         incrementQuantity,
         decrementQuantity,
         removeFromCart,
-        globalCartQuantity
+        globalCartQuantity,
+        hidden,
+        toggleCart,
+        cartItems
     }}>
         {children}
     </CartContext.Provider>

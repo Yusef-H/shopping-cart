@@ -1,0 +1,27 @@
+.cart {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: #1393c6;
+    overflow-x: hidden;
+    margin-top: 75px;
+    transition: 0.5s;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.show {
+    width: 70%;
+    opacity: 0.9;
+
+}
+
+.hide {
+    width: 0;
+    margin-left: 0;
+}
+
+.cart-item-cont {}
