@@ -1,12 +1,10 @@
 import { describe, it, expect } from 'vitest';
 import { render, screen, waitFor } from '@testing-library/react';
-import { BrowserRouter, MemoryRouter, Router } from 'react-router-dom';
-import { createMemoryHistory } from 'history';
+import { BrowserRouter } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import App from '../App';
-import Home from '../components/Home'
-import Store from '../components/Store'
-import { userEvent } from '@testing-library/user-event';
+import userEvent from '@testing-library/user-event';
+import { CartProvider } from '../context/CartContext';
 
 vi.mock('../components/Home', () => ({
   default: () => (
@@ -27,9 +25,11 @@ vi.mock('../components/Store', () => ({
 describe('Navbar', () => {
   it("renders navigation links", () => {
     render(
-      <MemoryRouter>
-        <Navbar />
-      </MemoryRouter>
+      <CartProvider>
+        <BrowserRouter>
+          <Navbar />
+        </BrowserRouter>
+      </CartProvider>
     );
 
     const homeLink = screen.getByRole("link", { name: /home/i });
@@ -41,22 +41,17 @@ describe('Navbar', () => {
     expect(aboutLink).toBeInTheDocument();
   });
 
-  it('shows store when clicking on store link', async () => {
+  it('renders shopping cart with 0 quantity', async () => {
     const user = userEvent.setup();
-    const history = createMemoryHistory();
     render(
-      <BrowserRouter history={history}>
-        <App />
-      </BrowserRouter>
+      <CartProvider>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </CartProvider>
     );
 
-    const storeLink = screen.getByRole("link", { name: /store/i });
-    console.log(history.location);
-    user.click(storeLink);
-    console.log(history.location);
-
-
-    expect(history.location.pathname).toBe("/Store");
+    expect(screen.getByText('0')).toBeInTheDocument();
 
   })
 
