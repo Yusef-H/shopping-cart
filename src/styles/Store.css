@@ -87,3 +87,13 @@
     cursor: pointer;
     background-color: aquamarine;
 }
+
+.minus-btn:hover {
+    transform: rotate(-1turn);
+    transition: transform 1s 0s;
+}
+
+.plus-btn:hover {
+    transform: rotate(1turn);
+    transition: transform 1s 0s;
+}
