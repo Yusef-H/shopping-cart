@@ -25,6 +25,7 @@
     padding: 15px;
     background-color: white;
     border-radius: 8px;
+    border: 1px solid black;
 }
 
 .item-title {
@@ -40,4 +41,49 @@
 
 .item-price {
     font-size: 0.75rem;
+}
+
+.btn-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.min-plus-container {
+    display: flex;
+    width: 100px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.minus-btn,
+.plus-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: aliceblue;
+    padding: 7px;
+    border-radius: 8px;
+    width: 30px;
+    height: 30px;
+    font-size: 1rem;
+    border: 1px solid black;
+}
+
+.remove-btn,
+.add-cart-btn {
+    background-color: aliceblue;
+    border: 1px solid black;
+    border-radius: 8px;
+    padding: 7px;
+}
+
+.minus-btn:hover,
+.plus-btn:hover,
+.remove-btn:hover,
+.add-cart-btn:hover {
+    cursor: pointer;
+    background-color: aquamarine;
 }
