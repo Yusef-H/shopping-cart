@@ -70,6 +70,7 @@
     height: 30px;
     font-size: 1rem;
     border: 1px solid black;
+    transition: transform 0.75s 0s, background-color 1s 0s, color 0.75s 0s;
 }
 
 .remove-btn,
@@ -78,6 +79,7 @@
     border: 1px solid black;
     border-radius: 8px;
     padding: 7px;
+    transition: background-color 0.75s 0s, color 0.75s 0s;
 }
 
 .minus-btn:hover,
@@ -85,15 +87,26 @@
 .remove-btn:hover,
 .add-cart-btn:hover {
     cursor: pointer;
-    background-color: aquamarine;
+}
+
+.add-cart-btn:hover {
+    background-color: black;
+    color: white;
+}
+
+.remove-btn:hover {
+    background-color: red;
+    color: white;
 }
 
 .minus-btn:hover {
     transform: rotate(-1turn);
-    transition: transform 1s 0s;
+    background-color: black;
+    color: white;
 }
 
 .plus-btn:hover {
     transform: rotate(1turn);
-    transition: transform 1s 0s;
+    background-color: black;
+    color: white;
 }
