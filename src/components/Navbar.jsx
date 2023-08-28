@@ -20,9 +20,9 @@ function Navbar() {
       </button>
       <ul className={isNavExpanded ? 'nav-list expanded' : 'nav-list'}>
 
-        <Link to="/">Home</Link>
-        <Link to="/store">Store</Link>
-        <Link to="/about">About</Link>
+        <Link to="/" onClick={() => { setIsNavExpanded(!isNavExpanded); }}>Home</Link>
+        <Link to="/store" onClick={() => { setIsNavExpanded(!isNavExpanded); }}>Store</Link>
+        <Link to="/about" onClick={() => { setIsNavExpanded(!isNavExpanded); }}>About</Link>
       </ul>
 
 
