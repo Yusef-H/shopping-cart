@@ -13,8 +13,8 @@ const Router = () => {
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <><App /></>,
-      errorElement: <Error />
+      element: <App />,
+      errorElement: <Error error="Wrong URL error" />
     },
     {
       path: "/:name",

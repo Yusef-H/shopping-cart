@@ -12,12 +12,12 @@ function Store({ storeItems, setStoreItems }) {
     fetch("https://fakestoreapi.com/products?limit=100")
       .then((response) => {
         if (response.status >= 400) {
-          // throw new Error("server error");
+          throw new Error("server error");
         }
         return response.json();
       })
       .then((data) => setStoreItems(data))
-      .catch((error) => setError(error))
+      .catch((error) => setError(error.message))
       .finally(() => setLoading(false));
   }, []);
   if (loading) return (
@@ -29,7 +29,7 @@ function Store({ storeItems, setStoreItems }) {
 
     </div>
   );
-  if (error) return <Error />
+  if (error) return <Error error={error} />
   return (
     <div className='store'>
 

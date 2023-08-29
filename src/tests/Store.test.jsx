@@ -5,6 +5,7 @@ import Store from '../components/Store';
 import { CartProvider } from '../context/CartContext';
 import userEvent from '@testing-library/user-event';
 import { beforeAll, beforeEach } from 'vitest';
+import { BrowserRouter } from 'react-router-dom';
 
 global.fetch = vi.fn();
 const mockData = [
@@ -53,6 +54,17 @@ describe('Store component', () => {
         });
     });
 
+    it('handles fetch error', async () => {
+        // Mock the fetch function to reject with an error
+        window.fetch = vi.fn(() => Promise.reject({ json: () => new Error('Fetch error') }));
+
+        render(<BrowserRouter><CartProvider><Store /></CartProvider ></BrowserRouter>);
+
+        // Wait for error message to be rendered
+        await waitFor(() => {
+            expect(screen.getAllByText(/Error/i)[0]).toBeInTheDocument();
+        });
+    });
 
     describe('store buttons', () => {
         let btns;
@@ -61,7 +73,7 @@ describe('Store component', () => {
         let user;
         beforeEach(async () => {
             user = userEvent.setup();
-            render(<CartProvider><Store storeItems={mockData} setStoreItems={(mockData) => mockData} /></CartProvider>);
+            render(<BrowserRouter><CartProvider><Store storeItems={mockData} setStoreItems={(mockData) => mockData} /></CartProvider></BrowserRouter>);
             btns = await screen.findAllByRole('button', { name: "Add To Cart" });
         })
 
@@ -89,22 +101,6 @@ describe('Store component', () => {
             await user.click(plusButton);
             expect(screen.getByText('4')).toBeInTheDocument();
         })
-    })
-
-
-
-
-
-    it('handles fetch error', async () => {
-        // Mock the fetch function to reject with an error
-        window.fetch = vi.fn(() => Promise.reject({ json: () => new Error('Fetch error') }));
-
-        render(<Store />);
-
-        // Wait for error message to be rendered
-        await waitFor(() => {
-            expect(screen.getByText('Error')).toBeInTheDocument();
-        });
     });
 
 
