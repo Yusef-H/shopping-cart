@@ -23,7 +23,7 @@
     color: rgb(255, 255, 255);
     background-color: rgba(0, 0, 0, 0.6);
     border-radius: 8px;
-    z-index: 0;
+    z-index: -1;
     font-size: 2.5rem;
     border: 2px solid white;
     animation: droptitle 1.5s;

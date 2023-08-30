@@ -3,7 +3,7 @@ import '../styles/about.css'
 function About() {
   return (
     <div className='about'>
-      About
+      <h2 className='about-content'>This is a fake store shopping cart project. Created for learning purposes only.</h2>
     </div>
   )
 }
