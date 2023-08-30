@@ -21,5 +21,26 @@
     transform: translate(-50%, -50%);
     text-align: center;
     color: rgb(255, 255, 255);
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 8px;
+    z-index: 0;
+    font-size: 2.5rem;
+    animation: droptitle 1.5s;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+@keyframes droptitle {
+    from {
+        top: 200px;
+        font-size: 0.5rem;
+        background-color: rgba(255, 255, 255, 0.6);
+        color: black;
+    }
+
+    to {
+        top: 50%;
+        font-size: 2.5rem;
+        background-color: rgba(0, 0, 0, 0.6);
+        color: white;
+    }
 }
