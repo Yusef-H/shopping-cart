@@ -56,13 +56,13 @@ describe('Store component', () => {
 
     it('handles fetch error', async () => {
         // Mock the fetch function to reject with an error
-        window.fetch = vi.fn(() => Promise.reject({ json: () => new Error('Fetch error') }));
+        global.fetch = vi.fn(() => Promise.reject({ json: () => new Error('Fetch error') }));
 
-        render(<BrowserRouter><CartProvider><Store /></CartProvider ></BrowserRouter>);
+        render(<BrowserRouter><CartProvider><Store storeItems={mockData} setStoreItems={(mockData) => mockData} /></CartProvider ></BrowserRouter>);
 
         // Wait for error message to be rendered
         await waitFor(() => {
-            expect(screen.getAllByText(/Error/i)[0]).toBeInTheDocument();
+            expect(screen.getByText(/Error Page!/i)).toBeInTheDocument();
         });
     });
 
