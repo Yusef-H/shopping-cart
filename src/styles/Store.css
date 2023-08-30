@@ -45,7 +45,7 @@
 
 .item-title {
     flex: 1;
-    font-size: 1rem;
+    font-size: 1.25rem;
 }
 
 .item-img {
@@ -55,7 +55,7 @@
 }
 
 .item-price {
-    font-size: 0.75rem;
+    font-size: 2rem;
 }
 
 .btn-container {
